@@ -33,8 +33,6 @@ const App: React.FC = () => {
 
 const styles = {
   container: {
-    padding: 20,
-    paddingTop: 30
   },
 
 };

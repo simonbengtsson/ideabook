@@ -1,19 +1,18 @@
-import React, {useState} from "react";
+import React, {CSSProperties, useState} from "react";
 import {useHistory} from "react-router";
 import {ideasModel} from "../../mockData";
 import Color from "color";
 import {IoMdArrowDropup} from "react-icons/all";
-import {primaryColor} from "../../common/common";
+import {primaryColor, primaryHeader, secondaryText} from "../../common/common";
 
 type Props = {
   idea: any,
   index: number
 }
 
-export const IdeaRow: React.FC<Props> = (props) => {
-  const { idea, index } = props;
+const VoteButton: React.FC<Props> = (props) => {
 
-  let history = useHistory();
+  const {idea, index} = props;
   const [ideas, setIdeas] = useState(Object.values(ideasModel));
 
   const toggleVote = (index: number) => {
@@ -22,6 +21,30 @@ export const IdeaRow: React.FC<Props> = (props) => {
     idea.voteCount = idea.votedAt ? idea.voteCount + 1 : idea.voteCount - 1;
     setIdeas([...ideas]);
   };
+
+  const style: CSSProperties = {
+    padding: 8,
+    borderRadius: 5,
+    border: 'solid 1px',
+    borderColor: idea.votedAt ? primaryColor : '#ccc',
+    marginLeft: 'auto',
+    display: 'flex',
+    flexDirection: 'column',
+    cursor: 'pointer',
+    userSelect: 'none',
+    alignItems: 'center'
+  };
+
+  return <span style={{...style}} onClick={(event) => { event.stopPropagation(); toggleVote(index) }}>
+    <IoMdArrowDropup style={{color: idea.votedAt ? primaryColor : 'black'}}/>
+    <div style={{color: idea.votedAt ? primaryColor : 'black'}}>{idea.voteCount}</div>
+  </span>
+};
+
+export const IdeaRow: React.FC<Props> = (props) => {
+  const { idea, index } = props;
+
+  let history = useHistory();
 
   const navigateToIdea = (index: number) => {
     history.push('/ideas/' + index);
@@ -45,26 +68,9 @@ export const IdeaRow: React.FC<Props> = (props) => {
       <Icon style={{fontSize: 24, color: color}}/>
     </div>
     <div>
-      <div style={{fontWeight: 700}}>{idea.name}</div>
-      <div>{idea.teaser}</div>
+      <div style={{...primaryHeader}}>{idea.name}</div>
+      <div style={{...secondaryText}}>{idea.teaser}</div>
     </div>
-    <span onClick={(event) => {
-      event.stopPropagation();
-      toggleVote(index)
-    }} style={{
-      padding: 8,
-      borderRadius: 5,
-      border: 'solid 1px',
-      borderColor: idea.votedAt ? primaryColor : '#ccc',
-      marginLeft: 'auto',
-      display: 'flex',
-      flexDirection: 'column',
-      cursor: 'pointer',
-      userSelect: 'none',
-      alignItems: 'center'
-    }}>
-              <IoMdArrowDropup style={{color: idea.votedAt ? primaryColor : 'black'}}/>
-              <div style={{color: idea.votedAt ? primaryColor : 'black'}}>{idea.voteCount}</div>
-          </span>
+    <VoteButton idea={idea} index={index}/>
   </li>
 };

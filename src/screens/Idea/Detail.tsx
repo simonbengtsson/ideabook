@@ -3,6 +3,8 @@ import {useHistory, useParams} from "react-router";
 import {ideasModel} from "../../mockData";
 import {IdeaRow} from './Row'
 import {IoIosMore, IoMdArrowBack} from "react-icons/all";
+import {Navbar, NavbarButton, Page} from "../../common/Navbar";
+import {primaryHeader, primaryText, secondaryText} from "../../common/common";
 
 export const IdeaDetailScreen: React.FC = () => {
   let history = useHistory();
@@ -16,17 +18,21 @@ export const IdeaDetailScreen: React.FC = () => {
 
   return (
     <div>
-      <header style={{display: 'flex', alignItems: 'center', paddingBottom: 30}}>
-        <IoMdArrowBack style={{fontSize: 28, paddingRight: 16, padding: 10}} onClick={() => history.goBack()} />
+      <Navbar>
+        <NavbarButton onClick={() => history.goBack()}>
+          <IoMdArrowBack />
+        </NavbarButton>
         <div style={{marginLeft: 'auto', fontSize: 28}}>
           <IoIosMore style={{paddingRight: 16}} onClick={() => history.push(`/ideas/${index}/update`)} />
         </div>
-      </header>
-      <IdeaRow key={index} idea={idea} index={index} />
-      <p>{idea.pitch}</p>
-      <div style={{whiteSpace: 'nowrap', overflow: 'scroll'}}>
-        {images}
-      </div>
+      </Navbar>
+      <Page>
+        <IdeaRow key={index} idea={idea} index={index} />
+        <p style={{...primaryText}}>{idea.pitch}</p>
+        <div style={{whiteSpace: 'nowrap', overflow: 'scroll'}}>
+          {images}
+        </div>
+      </Page>
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
 import {ideasModel} from "../../mockData";
 import {IdeaRow} from "../Idea/Row";
+import {Navbar, NavbarButton, Page} from "../../common/Navbar";
 import {FaUserCircle, IoMdAdd, IoMdMegaphone} from "react-icons/all";
-import {primaryColor} from "../../common/common";
+import {primaryColor, secondaryText} from "../../common/common";
 import {useHistory} from "react-router";
 
 export const HomeScreen: React.FC = () => {
@@ -12,20 +13,31 @@ export const HomeScreen: React.FC = () => {
   });
   return (
     <div>
-      <header style={{display: 'flex', alignItems: 'center', paddingBottom: 30}}>
+      <Navbar>
         <IoMdMegaphone style={{fontSize: 50, paddingRight: 16}}/>
         <div>
           <div style={{color: primaryColor, fontWeight: 700, fontSize: 24}}>Ideabook</div>
           <div style={{color: '#666',}}>Publish all ideas</div>
         </div>
-        <div style={{marginLeft: 'auto', fontSize: 28}}>
-          <IoMdAdd style={{paddingRight: 16}} onClick={() => history.push('/ideas/add')} />
-          <FaUserCircle/>
+        <div style={{marginLeft: 'auto'}}>
+          <NavbarButton style={{marginLeft: 'auto', fontSize: 28}} onClick={() => history.push('/ideas/add')}>
+            <IoMdAdd />
+          </NavbarButton>
+          <NavbarButton style={{marginLeft: 'auto', fontSize: 28}} onClick={() => {}}>
+            <FaUserCircle/>
+          </NavbarButton>
         </div>
-      </header>
-      <main>
-        <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{listItems}</ul>
-      </main>
+      </Navbar>
+      <Page style={{display: 'flex', flexFlow: 'column'}}>
+        <section style={{flex: 10}}>
+          <ul style={{listStyleType: 'none', margin: 0, padding: 0}}>{listItems}</ul>
+        </section>
+        <div style={{flexBasis: '30px'}} />
+        <section style={{marginTop: 7, flex: 4}}>
+          <h4 style={{margin: 0, padding: 0}}>Experimentation Phase</h4>
+          <p style={{...secondaryText, ...{padding: 0, marginTop: 10}}}>This is an early test of the Ideabook concept. If you want to be involved or read more checkout the project at <a href="https://findcollabs.com/project/ideabook-THuXaCkeadEjnufVb1vz.">findcollab</a>.</p>
+        </section>
+      </Page>
     </div>
   );
 };
