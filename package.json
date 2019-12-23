@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "firebase-tools": "^7.11.0",
     "slate": "^0.54.6",
     "slate-react": "^0.54.6"
   }
