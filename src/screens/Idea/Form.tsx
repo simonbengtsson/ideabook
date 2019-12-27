@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {useParams} from "react-router";
 import {Idea, ideasModel} from "../../mockData";
-import {IoMdArrowBack, IoMdMegaphone} from "react-icons/all";
+import {IoMdMegaphone} from "react-icons/all";
 import {primaryColor, secondaryText} from "../../common/common";
 import {MdClose} from "react-icons/all";
 import {useHistory} from "react-router";
@@ -18,6 +18,7 @@ export const IdeaForm: React.FC = () => {
     ideaInput = ideasModel[id];
   } else {
     ideaInput = {
+      id: '' + Object.keys(ideasModel).length,
       name: '',
       teaser: '',
       icon: IoMdMegaphone,

@@ -2,9 +2,10 @@ import {FaSnapchatGhost, FaStackOverflow, IoMdMegaphone} from "react-icons/all";
 import React from "react";
 
 export type Idea = {
+  id: string,
   name: string,
   teaser: string,
-  icon: React.FC,
+  icon: any,
   color: string,
   voteCount: number,
   votedAt: Date|null,
@@ -14,6 +15,7 @@ export type Idea = {
 
 export const ideasModel: {[key: string]: Idea} = {
   0: {
+    id: '0',
     name: 'Ideabook',
     teaser: 'Publish all ideas',
     icon: IoMdMegaphone,
@@ -24,6 +26,7 @@ export const ideasModel: {[key: string]: Idea} = {
     pitch: 'Alarm clocks were invented 200 years ago but hasn\'t really changed since. Cervidae enables you to start your day with your friend or with Beyonce singing a morning tune.'
   },
   1: {
+    id: '1',
     name: 'StackOverflow',
     teaser: 'Where Developers Learn',
     icon: FaStackOverflow,
@@ -34,6 +37,7 @@ export const ideasModel: {[key: string]: Idea} = {
     pitch: 'Stack Overflow is the largest, most trusted online community for developers to learn, share​ ​their programming ​knowledge, and build their careers.'
   },
   2: {
+    id: '2',
     name: 'Snapchat',
     teaser: 'Share a moment',
     icon: FaSnapchatGhost,
@@ -44,6 +48,7 @@ export const ideasModel: {[key: string]: Idea} = {
     pitch: 'Snapchat lets you easily talk with friends, view Live Stories from around the world, and explore news in Discover. Life\'s more fun when you live in the moment!'
   },
   3: {
+    id: '3',
     name: 'Slack',
     teaser: 'Where Work Happens',
     icon: IoMdMegaphone,

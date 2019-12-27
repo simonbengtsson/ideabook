@@ -16,7 +16,7 @@ const App: React.FC = () => {
           <Route path="/ideas/add">
             <IdeaForm />
           </Route>
-          <Route path="/ideas/:id/update">
+          <Route path="/ideas/:id/edit">
             <IdeaForm />
           </Route>
           <Route path="/ideas/:id">

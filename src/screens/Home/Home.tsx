@@ -8,9 +8,10 @@ import {useHistory} from "react-router";
 
 export const HomeScreen: React.FC = () => {
   let history = useHistory();
-  const listItems = Object.values(ideasModel).map((idea, index) => {
-    return <IdeaRow key={index} idea={idea} index={index} />
+  const listItems = Object.values(ideasModel).map((idea) => {
+    return <IdeaRow key={idea.id} idea={idea} />
   });
+
   return (
     <div>
       <Navbar>
@@ -20,11 +21,8 @@ export const HomeScreen: React.FC = () => {
           <div style={{color: '#666',}}>Publish all ideas</div>
         </div>
         <div style={{marginLeft: 'auto'}}>
-          <NavbarButton style={{marginLeft: 'auto', fontSize: 28}} onClick={() => history.push('/ideas/add')}>
+          <NavbarButton style={{marginLeft: 'auto'}} onClick={() => history.push('/ideas/add')}>
             <IoMdAdd />
-          </NavbarButton>
-          <NavbarButton style={{marginLeft: 'auto', fontSize: 28}} onClick={() => {}}>
-            <FaUserCircle/>
           </NavbarButton>
         </div>
       </Navbar>
@@ -35,7 +33,7 @@ export const HomeScreen: React.FC = () => {
         <div style={{flexBasis: '30px'}} />
         <section style={{marginTop: 7, flex: 4}}>
           <h4 style={{margin: 0, padding: 0}}>Experimentation Phase</h4>
-          <p style={{...secondaryText, ...{padding: 0, marginTop: 10}}}>This is an early test of the Ideabook concept. If you want to be involved or read more checkout the project at <a href="https://findcollabs.com/project/ideabook-THuXaCkeadEjnufVb1vz.">findcollab</a>.</p>
+          <p style={{...secondaryText, ...{padding: 0, marginTop: 10}}}>This is an early test of the Ideabook concept. If you want to be involved or read more checkout the project at <a href="https://findcollabs.com/project/ideabook-THuXaCkeadEjnufVb1vz">findcollab</a>.</p>
         </section>
       </Page>
     </div>

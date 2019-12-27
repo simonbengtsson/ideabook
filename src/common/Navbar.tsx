@@ -1,4 +1,4 @@
-import React, {CSSProperties} from "react";
+import React, {CSSProperties, MouseEventHandler} from "react";
 
 export const Navbar: React.FC<{}> = (props) => {
   return <header style={styles.navbarContainer}>
@@ -12,7 +12,7 @@ export const Page: React.FC<{style?: CSSProperties}> = (props) => {
   </main>
 };
 
-export const NavbarButton: React.FC<{style?: CSSProperties, onClick: () => any}> = (props) => {
+export const NavbarButton: React.FC<{style?: CSSProperties, onClick: MouseEventHandler}> = (props) => {
   return <button style={{...styles.navbarButton}} onClick={props.onClick} className='reset-a'>
     {props.children}
   </button>
