@@ -21,12 +21,16 @@ const VoteButton: React.FC<Props> = (props) => {
   };
 
   const style: CSSProperties = {
-    padding: 8,
+    paddingTop: 8,
+    paddingBottom: 8,
+    paddingRight: 16,
+    paddingLeft: 16,
     borderRadius: 5,
     border: 'solid 1px',
     borderColor: idea.votedAt ? primaryColor : '#ccc',
     marginLeft: 'auto',
     display: 'flex',
+    fontSize: 18,
     flexDirection: 'column',
     cursor: 'pointer',
     userSelect: 'none',
