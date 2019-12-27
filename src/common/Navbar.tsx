@@ -1,4 +1,5 @@
 import React, {CSSProperties, MouseEventHandler} from "react";
+import {IconButton} from "@material-ui/core";
 
 export const Navbar: React.FC<{}> = (props) => {
   return <header style={styles.navbarContainer}>
@@ -13,9 +14,9 @@ export const Page: React.FC<{style?: CSSProperties}> = (props) => {
 };
 
 export const NavbarButton: React.FC<{style?: CSSProperties, onClick: MouseEventHandler}> = (props) => {
-  return <button style={{...styles.navbarButton}} onClick={props.onClick} className='reset-a'>
+  return <IconButton aria-label="Add Idea" style={{...styles.navbarButton}} onClick={props.onClick}>
     {props.children}
-  </button>
+  </IconButton>
 };
 
 const styles = {

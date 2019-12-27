@@ -41,8 +41,8 @@ export const IdeaDetailScreen: React.FC = () => {
           <IoMdArrowBack />
         </NavbarButton>
         <div style={{marginLeft: 'auto'}}>
-          <NavbarButton onClick={handleClick}>
-            <IoIosMore style={{paddingRight: 16}} />
+          <NavbarButton onClick={handleClick} >
+            <IoIosMore />
           </NavbarButton>
         </div>
       </Navbar>
