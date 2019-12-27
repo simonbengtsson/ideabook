@@ -6,6 +6,8 @@ import {primaryColor, secondaryText} from "../../common/common";
 import {MdClose} from "react-icons/all";
 import {useHistory} from "react-router";
 import {Navbar, NavbarButton, Page} from "../../common/Navbar";
+import {TextField} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 
 export const IdeaForm: React.FC = () => {
   let history = useHistory();
@@ -46,19 +48,12 @@ export const IdeaForm: React.FC = () => {
       </Navbar>
       <Page>
         <div className="page">
-          <div style={{display: 'flex'}}>
-            <div>
-              <label style={{...styles.inputLabel}}>Name</label>
-              <label style={{...styles.inputLabel}}>Teaser</label>
-              <label style={{...styles.inputLabel}}>Pitch</label>
-            </div>
-            <div style={{flex: 2, display: 'flex', flexDirection: 'column'}}>
-              <input className="input" type="text" value={idea.name} style={styles.ideaInput} onChange={e => { setIdea({...idea, name: e.target.value})  }} />
-              <input className="input" value={idea.teaser} style={styles.ideaInput} onChange={e => { setIdea({...idea, teaser: e.target.value})  }} />
-              <input className="input" value={idea.pitch} style={styles.ideaInput} onChange={e => { setIdea({...idea, pitch: e.target.value})  }} />
-            </div>
-          </div>
-          <button onClick={() => saveClicked() } style={{...styles.fullButton, ...{marginTop: 28}}}>{isCreating ? 'Add' : 'Update'}</button>
+          <form noValidate>
+            <TextField fullWidth value={idea.name} label="Name" onChange={e => { setIdea({...idea, name: e.target.value})  }} /><br/><br/>
+            <TextField fullWidth value={idea.teaser}  label="Teaser" onChange={e => { setIdea({...idea, teaser: e.target.value})  }} /><br/><br/>
+            <TextField fullWidth value={idea.pitch} label="Pitch" onChange={e => { setIdea({...idea, pitch: e.target.value})  }} multiline />
+          </form>
+          <Button onClick={() => saveClicked() } style={{color: '#fff', marginTop: 28, borderRadius: 100}} fullWidth variant="contained" size="medium" color='primary'>{isCreating ? 'Add' : 'Update'}</Button>
         </div>
       </Page>
     </div>
