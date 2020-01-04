@@ -5,7 +5,6 @@ import {Navbar, NavbarButton, Page} from "../../common/Navbar";
 import {IoMdAdd, IoMdMegaphone} from "react-icons/all";
 import {primaryColor, secondaryText} from "../../common/common";
 import {useHistory} from "react-router";
-import {IconButton} from "@material-ui/core";
 
 export const HomeScreen: React.FC = () => {
   let history = useHistory();

@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import {useParams} from "react-router";
 import {Idea, ideasModel} from "../../mockData";
 import {IoMdMegaphone} from "react-icons/all";
-import {primaryColor, secondaryText} from "../../common/common";
 import {MdClose} from "react-icons/all";
 import {useHistory} from "react-router";
 import {Navbar, NavbarButton, Page} from "../../common/Navbar";
@@ -58,19 +57,4 @@ export const IdeaForm: React.FC = () => {
       </Page>
     </div>
   );
-};
-
-const styles = {
-  fullButton: {backgroundColor: primaryColor, padding: 8, color: 'white', fontSize: 18, borderRadius: 100, border: 0, width: '100%'},
-  ideaInput: {
-    marginLeft: 18,
-    flex: 1,
-    marginBottom: 18
-  },
-  inputLabel: {
-    marginBottom: 18,
-    display: 'block',
-    ...secondaryText,
-    lineHeight: '38px',
-  }
 };

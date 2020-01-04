@@ -1,5 +1,4 @@
 import {FaSnapchatGhost, FaStackOverflow, IoMdMegaphone} from "react-icons/all";
-import React from "react";
 
 export type Idea = {
   id: string,
@@ -23,7 +22,7 @@ export const ideasModel: {[key: string]: Idea} = {
     voteCount: 24,
     votedAt: new Date(),
     images: [],
-    pitch: 'Alarm clocks were invented 200 years ago but hasn\'t really changed since. Cervidae enables you to start your day with your friend or with Beyonce singing a morning tune.'
+    pitch: 'Build up your book of product ideas and collaborate with others. Ideas are worth nothing so let’s share them and start executing.'
   },
   1: {
     id: '1',
